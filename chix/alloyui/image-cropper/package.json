@@ -1,0 +1,21 @@
+{
+  "stylesheets": [ 
+    {
+      "name": "aui",
+      "host": "cdn.alloyui.com",
+      "url": "/2.0.0pr6/aui-css/css/bootstrap.min.css"
+    }
+  ],
+  "javascripts": [
+    {
+      "name": "aui",
+      "host": "cdn.alloyui.com",
+      "url": "/2.0.0pr6/aui/aui-min.js"
+    },
+    {
+      "name": "Script",
+      "host": "localhost:8080",
+      "url": "/alloyui/image-cropper/js/script.js"
+    }
+  ]
+}

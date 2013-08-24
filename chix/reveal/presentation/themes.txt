@@ -1,0 +1,23 @@
+TODO: find a way to select these and where.
+enum on a json schema would be great, but i'm not sure
+if I want to add logic within the template for that
+these need to be in the head...
+
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/beige.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/beige.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/default.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/default.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/moon.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/moon.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/night.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/night.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/serif.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/serif.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/simple.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/simple.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/sky.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/sky.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/solarized.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/css/theme/solarized.min.css
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/js/reveal.js
+//cdnjs.cloudflare.com/ajax/libs/reveal.js/2.3/js/reveal.min.js

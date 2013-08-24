@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "description": "RevealJS - Presentation",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "default": "Presentation Title",
+      "required": "true"
+    },
+    "subtitle": {
+      "type": "string",
+      "title": "Subtitle",
+      "default": "Presentation Subtitle",
+      "required": "true"
+    },
+    "content": {
+      "type": "string",
+      "title": "Content",
+      "default": "We present to you this awesome new concept!",
+      "format": "textarea",
+      "required": "true"
+    },
+    "slides": {
+      "type": "array",
+      "title": "Slides",
+      "items": {
+        "type": "object",
+        "title": "Slide",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "title",
+            "required": "true"
+          },
+          "content": {
+            "type": "string",
+            "title": "Description",
+            "required": "true"
+          }
+        }
+      }
+    }
+  }
+}

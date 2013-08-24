@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{context.title}}</title>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+
+    {{#each stylesheets}}
+    {{#if this.host}}
+    <link rel="stylesheet" type="text/css" href="//{{this.host}}{{this.url}}"></link>
+    {{else}}
+    <link rel="stylesheet" type="text/css" href="{{this.url}}"></link>
+    {{/if}}
+    {{/each}}
+
+  </head>
+  <body>
+
+  <script>
+    {{#each javascripts}}{{#if this.host}}head.js("//{{this.host}}{{this.url}}");
+    {{else}}head.js("{{this.url}}");
+    {{/if}}{{/each}}
+  </script>
+
+  {{{body}}}
+  </body>
+</html>

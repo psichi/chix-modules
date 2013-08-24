@@ -1,0 +1,36 @@
+{
+  "stylesheets": [ 
+    {
+      "name": "Stylesheet",
+      "host": "localhost:8080",
+      "url": "/threejs/table/css/style.css"
+    }
+  ],
+  "javascripts": [
+    {
+      "name": "three",
+      "host": "localhost:8080",
+      "url": "/threejs/table/js/three.min.js"
+    },
+    {
+      "name": "tween",
+      "host": "localhost:8080",
+      "url": "/threejs/table/js/libs/tween.min.js"
+    },
+    {
+      "name": "TrackballControls",
+      "host": "localhost:8080",
+      "url": "/threejs/table/js/controls/TrackballControls.js"
+    },
+    {
+      "name": "CSS3DRenderer",
+      "host": "localhost:8080",
+      "url": "/threejs/table/js/renderers/CSS3DRenderer.js"
+    },
+    {
+      "name": "Table",
+      "host": "localhost:8080",
+      "url": "/threejs/table/js/table.js"
+    }
+  ]
+}

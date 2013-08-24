@@ -1,0 +1,13 @@
+{{#each featurettes}}
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <h2 class="featurette-heading">{{this.heading}} <span class="text-muted">{{this.subheading}}</span></h2>
+    <p class="lead">{{this.lead}}</p>
+  </div>
+  <div class="col-md-5">
+    <img class="featurette-image img-responsive" src="data:image/png;base64," data-src="{{this.datasrc}}" alt="{{this.alt}}">
+  </div>
+</div>
+{{/each}}

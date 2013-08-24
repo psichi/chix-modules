@@ -1,0 +1,51 @@
+{
+  "type": "object",
+  "description": "Foundation - Pricing Table",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "default": "Standard",
+      "required": "true"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price",
+      "default": "$99.99",
+      "required": "true"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "default": "An awesome description",
+      "required": "true"
+    },
+    "button_text": {
+      "type": "string",
+      "title": "Button text",
+      "default": "Buy Now",
+      "required": "true"
+    },
+    "button_link": {
+      "type": "string",
+      "title": "Button link",
+      "default": "#",
+      "required": "true"
+    },
+    "items": {
+      "type": "array",
+      "title": "Item list",
+      "items": {
+        "type": "object",
+        "title": "Item",
+        "properties": {
+            "title": {
+              "type": "string",
+              "title": "title",
+              "required": "true"
+            }
+          }
+      }
+    }
+  }
+}

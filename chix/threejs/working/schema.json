@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "ThreeJS - Tabel",
+  "properties": {
+    "type": {
+      "type": "string",
+      "title": "Type",
+      "enum": ["table", "sphere", "helix", "grid"],
+      "default": "primary",
+      "required": "true"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "options": {
+    "jsonform": "true" 
+  },
+  "stylesheets": [ 
+    {
+      "name": "reveal",
+      "host": "cdnjs.cloudflare.com",
+      "url": "/ajax/libs/reveal.js/2.3/css/reveal.min.css"
+    },
+    {
+      "name": "theme (TODO: unconfigurable right now)",
+      "host": "cdnjs.cloudflare.com",
+      "url": "/ajax/libs/reveal.js/2.3/css/theme/default.min.css"
+    },
+    {
+      "name": "syntax highlighting (TODO: shouldn't point to this server)",
+      "url": "/reveal/presentation/lib/css/zenburn.css"
+    }
+  ],
+  "javascripts": [
+    {
+      "name": "reveal",
+      "host": "cdnjs.cloudflare.com",
+      "url": "/ajax/libs/reveal.js/2.3/js/reveal.min.js"
+    },
+    {
+      "name": "reveal",
+      "host": "localhost:8080",
+      "url": "/reveal/presentation/js/presentation.js"
+    }
+  ]
+}

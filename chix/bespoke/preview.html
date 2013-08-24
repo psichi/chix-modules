@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{context.title}}</title>
+
+    {{#each javascripts}}
+    {{#if this.host}}
+    <script src="//{{this.host}}{{this.url}}"></script>
+    {{else}}
+    <script src="{{this.url}}"></script>
+    {{/if}}
+    {{/each}}
+    {{#each stylesheets}}
+    {{#if this.host}}
+    <link rel="stylesheet" type="text/css" href="//{{this.host}}{{this.url}}"></link>
+    {{else}}
+    <link rel="stylesheet" type="text/css" href="{{this.url}}"></link>
+    {{/if}}
+    {{/each}}
+
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+</html>

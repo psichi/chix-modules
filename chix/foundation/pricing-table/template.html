@@ -1,0 +1,9 @@
+<ul class="pricing-table">
+  <li class="title">{{title}}</li>
+  <li class="price">{{price}}</li>
+  <li class="description">{{description}}</li>
+  {{#each items}}
+  <li class="bullet-item">{{this.title}}</li>
+  {{/each}}
+  <li class="cta-button"><a class="button" href="{{button_link}}">{{button_text}}</a></li>
+</ul>

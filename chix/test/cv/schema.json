@@ -1,0 +1,1091 @@
+{
+    "description": "A JSON Representation of a Europass Document corresponding to Europass XML 3.0",
+    "type": "object",
+    "properties": {
+        "SkillsPassport": {
+            "description": "Defines a sequence of elements that fully describe a Europass XML document.",
+            "Locale": {
+                "title": "the language of this document",
+                "type": "string",
+                "pattern": "^[a-z]{2}$"
+            },
+            "DocumentInfo": {
+                "title": "metadata information about this document",
+                "type": "object",
+                "properties": {
+                    "DocumentType": {
+                        "type": "string",
+                        "enum":[
+                        "ECV_ESP",
+                        "ESP",
+                        "ECV",
+                        "ELP",
+                        "EX"]
+                    },
+                    "CreationDate": {
+                        "type": "string",
+                        "pattern": "^[0-9]{2}/[0-9]{2}/[0-9]{4}$"
+                    },
+                    "LastUpdateDate": {
+                        "type": "string",
+                        "pattern": "^[0-9]{2}/[0-9]{2}/[0-9]{4}$"
+                    },
+                    "XSDVersion": {
+                        "type": "string",
+                        "pattern": "^V[0-9]\\.[0-9]$"
+                    },
+                    "Generator": {
+                        "type": "string",
+                        "optional": true
+                    },
+                    "Comment": {
+                        "type": "string",
+                        "optional": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PrintingPreferences": {
+                "title": "Printing preferences",
+                "type": "object",
+                "properties": {
+                    "ECV": {
+                        "type": "array",
+                        "items": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "show": {
+                                "type": "string",
+                                "pattern": "^true|false$"
+                            },
+                            "order": {
+                                "type": "string",
+                                "enum":[
+                                "FirstName Surname",
+                                "Surname FirstName",
+                                "Identification Headline WorkExperience Education Skills Achievement ReferenceTo",
+                                "Identification Headline Education WorkExperience Skills Achievement ReferenceTo"],
+                                "optional": true
+                            },
+                            "format": {
+                                "type": "string",
+                                "optional": true
+                            }
+                        }
+                    },
+                    "minItems": 0
+                }
+            },
+            "LearnerInfo": {
+                "Identification": {
+                    "title": "Personal Information",
+                    "description": "Contains the personal information of the individual, which includes at least the name, and contact information, demographics and photo.",
+                    "type": "object",
+                    "properties": {
+                        "PersonName": {
+                            "description": "Describes the name of a person. Consists of a first-name and surname.",
+                            "type": "object",
+                            "properties": {
+                                "FirstName": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "Surname": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            }
+                        },
+                        "ContactInfo": {
+                            "description": "Contains all the available methods of contacting individual.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Address": {
+                                    "description": "Defines the residence address of an individual.",
+                                    "type": "object",
+                                    "properties": {
+                                        "Contact": {
+                                            "type": "object",
+                                            "properties": {
+                                                "AddressLine": {
+                                                    "type": "string",
+                                                    "optional": true
+                                                },
+                                                "PostalCode": {
+                                                    "type": "string",
+                                                    "optional": true
+                                                },
+                                                "Municipality": {
+                                                    "type": "string",
+                                                    "optional": true
+                                                },
+                                                "Country": {
+                                                    "description": "Defines a country. The country is described by a code and a label. E.g. code: FR, label: France.",
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "Code": {
+                                                            "description": "Defines the country code type. The type is defined in the included schema 'EuropassISOCountries'. ",
+                                                            "type": "string",
+                                                            "pattern": "^[A-Z]{2}$",
+                                                            "optional": true
+                                                        },
+                                                        "Label": {
+                                                            "type": "string",
+                                                            "optional": true
+                                                        }
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        }
+                                    }
+                                },
+                                "Email": {
+                                    "description": "Defines the email address of an individual.",
+                                    "type": "object",
+                                    "properties": {
+                                        "Contact": {
+                                            "type": "string",
+                                            "optional": true
+                                        }
+                                    }
+                                },
+                                "Telephone": {
+                                    "description": "Lists the telephone numbers owned by the individual.",
+                                    "type": "array",
+                                    "items": {
+                                        "Contact": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Use": {
+                                            "Code": {
+                                                "enum":[
+                                                "home",
+                                                "work",
+                                                "mobile"],
+                                                "optional": true
+                                            },
+                                            "Label": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        }
+                                    },
+                                    "minItems": 0
+                                },
+                                "Website": {
+                                    "description": "Lists the websites that are owned, built by or refer to the individual.",
+                                    "type": "array",
+                                    "items": {
+                                        "Contact": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Use": {
+                                            "Code": {
+                                                "enum":[
+                                                "personal",
+                                                "business",
+                                                "work",
+                                                "portfolio"],
+                                                "optional": true
+                                            },
+                                            "Label": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        }
+                                    },
+                                    "minItems": 0
+                                },
+                                "InstantMessaging": {
+                                    "description": "Lists the instant messaging accounts numbers owned by the individual.",
+                                    "type": "array",
+                                    "items": {
+                                        "Contact": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Use": {
+                                            "Code": {
+                                                "enum":[
+                                                "gtalk",
+                                                "skype",
+                                                "icq",
+                                                "aim",
+                                                "msn",
+                                                "yahoo"],
+                                                "optional": true
+                                            },
+                                            "Label": {
+                                                "type": "string",
+                                                "optional": true
+                                            }
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "Demographics": {
+                            "description": "Contains demographics-related information about the individual. It includes the birthdate, gender and list of nationalities.",
+                            "type": "object",
+                            "properties": {
+                                "Birthdate": {
+                                    "description": "The date of birth of the individual. According to its type, the Birthdate element has no content and must have at least a year attribute.",
+                                    "type": "object",
+                                    "properties": {
+                                        "Year": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Month": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Day": {
+                                            "type": "number",
+                                            "optional": true
+                                        }
+                                    },
+                                    "optional": "true"
+                                },
+                                "Gender": {
+                                    "type": "string",
+                                    "optional": true,
+                                    "enum":[
+                                    "M",
+                                    "F"]
+                                },
+                                "Nationality": {
+                                    "description": "Defines a nationality. The nationality is described by a code and is a text only element. E.g. code: DE, label: German.",
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "Code": {
+                                            "type": "string",
+                                            "pattern": "^[A-Z]{2}$",
+                                            "optional": true
+                                        },
+                                        "Label": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    "minItems": 0
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "Photo": {
+                            "description": "Contains the base-64 encoded bytes of a JPEG or PNG image file that represents the personal photo of an individual",
+                            "type": "object",
+                            "properties": {
+                                "MimeType": {
+                                    "type": "string",
+                                    "enum":[
+                                    "image/jpeg",
+                                    "image/pjpeg",
+                                    "image/png",
+                                    "image/x-png"],
+                                    "optional": true
+                                },
+                                "Data": {
+                                    "type": "string",
+                                    "contentEncoding": "base64",
+                                    "optional": false
+                                },
+                                "Metadata": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "type": "object",
+                                        "optional": true,
+                                        "properties": {
+                                            "Key": {
+                                                "type": "string"
+                                            },
+                                            "Value": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            },
+                            "optional": true,
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "Headline": {
+                    "title": "desired employment/ occupation field",
+                    "description": "Contains a headline label for the current document. It is optional and may accommodate various cases.",
+                    "type": "object",
+                    "optional": true,
+                    "properties": {
+                        "Type": {
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "enum":[
+                                    "preferred_job",
+                                    "job_applied_for",
+                                    "studies_applied_for",
+                                    "position"],
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            }
+                        },
+                        "Description": {
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "pattern": "^[0-9]{5}$",
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "WorkExperience": {
+                    "title": "list of work experiences",
+                    "description": "Contains an list of work experiences. The order of those experiences is defined by the related printing preferences.",
+                    "type": "array",
+                    "optional": true,
+                    "items": {
+                        "Period": {
+                            "type": "object",
+                            "properties": {
+                                "From": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Year": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Month": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Day": {
+                                            "type": "number",
+                                            "optional": true
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "To": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Year": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Month": {
+                                            "type": "number",
+                                            "optional": true
+                                        },
+                                        "Day": {
+                                            "type": "number",
+                                            "optional": true
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "Current": {
+                                    "type": "boolean",
+                                    "optional": true
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "Position": {
+                            "description": "The occupational field is described by a code and a label. E.g. code: 41150, label: Secretary.",
+                            "type": "object",
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "pattern": "^[0-9]{5}$",
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "Activities": {
+                            "type": "string",
+                            "optional": true
+                        },
+                        "Employer": {
+                            "type": "object",
+                            "properties": {
+                                "Name": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ContactInfo": { "Address": {
+                                        "type": "object",
+                                        "properties": { "Contact": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "AddressLine": {
+                                                        "type": "string",
+                                                        "optional": true
+                                                    },
+                                                    "Municipality": {
+                                                        "type": "string",
+                                                        "optional": true
+                                                    },
+                                                    "PostalCode": {
+                                                        "type": "string",
+                                                        "optional": true
+                                                    },
+                                                    "Country": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "Code": {
+                                                                "type": "string",
+                                                                "pattern": "^[A-Z]{2}$",
+                                                                "optional": true
+                                                            },
+                                                            "Label": {
+                                                                "type": "string",
+                                                                "optional": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "optional": true,
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "Sector": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Code": {
+                                            "type": "string",
+                                            "pattern": "^[A-U]{1}$",
+                                            "optional": true
+                                        },
+                                        "Label": {
+                                            "type": "string",
+                                            "optional": true
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "ReferenceTo": {
+                                "type": "array",
+                                "optional": true,
+                                "items": {
+                                    "idref": {
+                                        "type": "string"
+                                    }
+                                },
+                                "minItems": 0
+                            },
+                            "additionalProperties": false
+                        },
+                        "minItems": 0
+                    }
+                },
+                "Education": {
+                    "title": "list of education experiences",
+                    "description": "Contains an list of learning achievements or a training periods (formal or not). The order of those experiences is defined by the related printing preferences.",
+                    "type": "array",
+                    "optional": true,
+                    "items": {
+                        "Period": {
+                            "type": "object",
+                            "properties": {
+                                "From": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Year": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Month": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Day": {
+                                            "type": "string",
+                                            "optional": true
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "To": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Year": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Month": {
+                                            "type": "string",
+                                            "optional": true
+                                        },
+                                        "Day": {
+                                            "type": "string",
+                                            "optional": true
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "Current": {
+                                    "type": "boolean",
+                                    "optional": true
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "Title": {
+                            "type": "string",
+                            "optional": true
+                        },
+                        "Activities": {
+                            "type": "string",
+                            "optional": true
+                        },
+                        "Organisation": {
+                            "type": "object",
+                            "properties": {
+                                "Name": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ContactInfo": {
+                                    "Address": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Contact": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "Municipality": {
+                                                        "type": "string",
+                                                        "optional": true
+                                                    },
+                                                    "Country": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "Code": {
+                                                                "type": "string",
+                                                                "pattern": "^[A-Z]{2}$",
+                                                                "optional": true
+                                                            },
+                                                            "Label": {
+                                                                "type": "string",
+                                                                "optional": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "optional": true,
+                                        "additionalProperties": false
+                                    }
+                                }
+                            }
+                        },
+                        "Level": {
+                            "type": "object",
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "pattern": "^[1-8]{1}$",
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "Field": {
+                            "type": "object",
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "pattern": "^[0-9]{2}$",
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "ReferenceTo": {
+                            "type": "array",
+                            "optional": true,
+                            "items": {
+                                "idref": {
+                                    "type": "string"
+                                }
+                            },
+                            "minItems": 0
+                        },
+                        "additionalProperties": false
+                    },
+                    "minItems": 0
+                },
+                "Skills": {
+                    "title": "Skills",
+                    "description": "Contains a sequence of skills and competences that the learner has acquired during any formal or informal experience.",
+                    "type": "object",
+                    "optional": true,
+                    "properties": {
+                        "MotherTongue": {
+                            "type": "array",
+                            "items": {
+                                "Code": {
+                                    "description": "The mother language code is defined in the included schema 'EuropassISOLanguages'.",
+                                    "type": "string",
+                                    "pattern": "^[a-z]{2}$",
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            },
+                            "minItems": 0
+                        },
+                        "ForeignLanguage": {
+                            "description": "Describes the level of knowledge of the language and related linguistic diplomas and/or experiences.",
+                            "type": "array",
+                            "items": {
+                                "Description": {
+                                    "type": "object",
+                                    "properties": {
+                                        "Code": {
+                                            "description": "The foreign language code is defined in the included schema 'EuropassISOLanguages'.",
+                                            "type": "string",
+                                            "pattern": "^[a-z]{2}$",
+                                            "optional": true
+                                        },
+                                        "Label": {
+                                            "type": "string",
+                                            "optional": true
+                                        }
+                                    }
+                                },
+                                "ProficiencyLevel": {
+                                    "type": "string",
+                                    "enum":[
+                                    "A1",
+                                    "A2",
+                                    "B1",
+                                    "B2",
+                                    "C1",
+                                    "C2"],
+                                    "optional": true
+                                },
+                                "Experience": {
+                                    "description": "Describes a list of linguistic experiences",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Period": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "From": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "Year": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            },
+                                                            "Month": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            },
+                                                            "Day": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    },
+                                                    "To": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "Year": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            },
+                                                            "Month": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            },
+                                                            "Day": {
+                                                                "type": "number",
+                                                                "optional": true
+                                                            }
+                                                        },
+                                                        "additionalProperties": false
+                                                    },
+                                                    "Current": {
+                                                        "type": "boolean",
+                                                        "optional": true
+                                                    },
+                                                    "additionalProperties": false
+                                                }
+                                            },
+                                            "Description": {
+                                                "type": "string"
+                                            },
+                                            "Documentation": {
+                                                "ReferenceTo": {
+                                                    "type": "array",
+                                                    "optional": true,
+                                                    "items": {
+                                                        "idref": {
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "minItems": 0
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "minItems": 0,
+                                    "optional": true
+                                },
+                                "Certificate": {
+                                    "description": "Describes a list of linguistic certificates",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "Title": {
+                                                "type": "string"
+                                            },
+                                            "AwardingBody": {
+                                                "type": "string"
+                                            },
+                                            "Date": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "Year": {
+                                                        "type": "number",
+                                                        "optional": true
+                                                    },
+                                                    "Month": {
+                                                        "type": "number",
+                                                        "optional": true
+                                                    },
+                                                    "Day": {
+                                                        "type": "number",
+                                                        "optional": true
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            },
+                                            "Level": {
+                                                "type": "string",
+                                                "pattern": "^[ABC]{1}[12]{1}$"
+                                            }
+                                        },
+                                        "optional": true
+                                    },
+                                    "ReferenceTo": {
+                                        "type": "array",
+                                        "optional": true,
+                                        "items": {
+                                            "idref": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "minItems": 0
+                                    },
+                                    "minItems": 0,
+                                    "optional": true
+                                }
+                            },
+                            "minItems": 0
+                        },
+                        "Communication": {
+                            "description": "Defines a generic skill, which is modelled with one unstructured (free text) Description element.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "Organisational": {
+                            "description": "Defines a generic skill, which is modelled with one unstructured (free text) Description element.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "JobRelated": {
+                            "description": "Defines a generic skill, which is modelled with one unstructured (free text) Description element.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "Computer": {
+                            "description": "Defines a generic skill, which is modelled with one unstructured (free text) Description element.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "Driving": {
+                            "description": "Defines a skill, the description of which is a driving category.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "array",
+                                    "items": { "Licence": {
+                                            "type": "string",
+                                            "enum":[
+                                            "A",
+                                            "B",
+                                            "C",
+                                            "D",
+                                            "A1",
+                                            "B1",
+                                            "C1",
+                                            "D1",
+                                            "BE",
+                                            "CE",
+                                            "DE",
+                                            "C1E",
+                                            "D1E"]
+                                        }
+                                    },
+                                    "minItems": 0,
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        },
+                        "Other": {
+                            "description": "Defines a generic skill, which is modelled with one unstructured (free text) Description element.",
+                            "type": "object",
+                            "optional": true,
+                            "properties": {
+                                "Description": {
+                                    "type": "string",
+                                    "optional": true
+                                },
+                                "ReferenceTo": {
+                                    "type": "array",
+                                    "optional": true,
+                                    "items": {
+                                        "idref": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "minItems": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "Achievements": {
+                    "title": "Achievements",
+                    "description": "Contains a list of additional information about the various achievements of an individual, such as participation to conferences, workshops, memberships to organisations, list of publications, etc.",
+                    "type": "array",
+                    "optional": true,
+                    "items": {
+                        "Title": {
+                            "type": "object",
+                            "properties": {
+                                "Code": {
+                                    "type": "string",
+                                    "enum":[
+                                    "honors_awards",
+                                    "publications",
+                                    "presentations",
+                                    "projects",
+                                    "citations",
+                                    "memberships",
+                                    "conferences",
+                                    "seminars",
+                                    "workshops",
+                                    "references",
+                                    "signature_equivalent"],
+                                    "optional": true
+                                },
+                                "Label": {
+                                    "type": "string",
+                                    "optional": true
+                                }
+                            }
+                        },
+                        "Description": {
+                            "type": "string",
+                            "optional": true
+                        },
+                        "ReferenceTo": {
+                            "type": "array",
+                            "items": {
+                                "idref": {
+                                    "type": "string"
+                                }
+                            },
+                            "minItems": 0
+                        }
+                    },
+                    "minItems": 0
+                },
+                "ReferenceTo": {
+                    "type": "array",
+                    "optional": true,
+                    "items": {
+                        "idref": {
+                            "type": "string"
+                        }
+                    },
+                    "minItems": 0
+                },
+                "Attachment": {
+                    "type": "array",
+                    "items": {
+                        "Name": {
+                            "type": "string"
+                        },
+                        "MimeType": {
+                            "type": "string",
+                            "enum":[
+                            "image/jpeg",
+                            "image/pjpeg",
+                            "image/png",
+                            "image/x-png",
+                            "application/pdf"]
+                        },
+                        "Data": {
+                            "type": "string",
+                            "contentEncoding": "base64",
+                            "optional": false
+                        },
+                        "Metadata": {
+                            "type": "array",
+                            "items": {
+                                "Key": {
+                                    "type": "string"
+                                },
+                                "Value": {
+                                    "type": "string"
+                                }
+                            },
+                            "minItems": 0
+                        },
+                        "Id": {
+                            "type": "string"
+                        },
+                        "Description": {
+                            "type": "string"
+                        }
+                    },
+                    "minItems": 0
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}

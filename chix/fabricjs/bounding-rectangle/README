@@ -1,0 +1,24 @@
+This is a fabricjs example.
+
+FabricJS primaly just acts upon a canvas.
+So there is not much html going on.
+
+To make the javascript typed we will use typescript.
+
+Appex can then translate this typescript into a json schema.
+So for this type we want a typescript interface declaration.
+
+For now it is just for configuration. 
+I can also imagine you will want to expose the useful 
+public methods so creating new components can be done visually.
+But this is for later use.
+
+Note that we will be describing this component, we will
+not be describing the entire fabricjs. Just the interface
+for this component. 
+
+These components should be as configurable as possible and
+should be really good at their purpose.
+
+When we use the component and configure it, we do not want
+to touch the javascript itself.

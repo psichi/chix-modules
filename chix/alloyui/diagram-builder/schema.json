@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "AlloyUI - Diagram Builder",
+  "properties": {
+    "images": {
+      "type": "array",
+      "title": "List items",
+      "items": {
+        "type": "object",
+        "title": "Item",
+        "properties": {
+          "image": {
+            "type": "url",
+            "title": "Image Source",
+            "default": "http://alloyui.com/carousel/img/1.jpg",
+            "required": "true"
+          }
+        }
+      }
+    }
+  }
+}

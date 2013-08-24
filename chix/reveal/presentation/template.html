@@ -1,0 +1,20 @@
+<div class="reveal">
+  <div class="slides">
+    <section>
+      <h1>{{title}}</h1>
+      <h3>{{subtitle}}</h3>
+      <div>
+        {{{content}}}
+      </div>
+    </section>
+
+    {{#each slides}}
+    <section>
+      <h2>{{this.title}}</h2>
+      <div>
+        {{{this.content}}}
+      </div>
+    </section>
+    {{/each}}
+  </div>
+</div>

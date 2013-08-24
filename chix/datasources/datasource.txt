@@ -1,0 +1,14 @@
+Ook de datasources moeten eenvoudig te creeren zijn.
+
+Er zijn statische datasources welke geen parameters verwachten.
+
+Er zijn datasources die verschillende configuraties kunnen hebben.
+Of bijvoorbeeld afhankelijk zijn van een gebruiker, zoals
+photoalbums ophalen bij facebook.
+
+datasources moeten in een apart pakket zitten.
+
+Ik wil bij b.v. navbar of de threejs dingen, datasources kunnen
+koppelen, veel widgets hoeven geen manuele input te hebben namelijk.
+
+Dus het hele formulier is dan ook niet nodig.

@@ -1,0 +1,37 @@
+{
+  "type": "object",
+  "description": "Bespoke - Slides",
+  "properties": {
+    "availableFields": {
+
+      "type": "array",
+      "title": "Available fields",
+      "description": "List of available fields",
+      "items": {
+        "type": "object",
+        "title": "Available field",
+        "properties": {
+          "iconClass": {
+            "type": "string",
+            "title": "Icon Class"
+            "default": "diagram-node-start-icon"
+            "required": "true"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label",
+            "default": "My Label",
+            "required": "true"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "default": "start",
+            "required": "true"
+          }
+        }
+
+      }
+    }
+  }
+}

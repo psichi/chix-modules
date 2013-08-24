@@ -1,0 +1,78 @@
+{
+  "type": "object",
+  "description": "FabricJS - Bounding Rectangles",
+  "properties": {
+    "id": {
+      "type": "number",
+      "description": "HTML Id",
+      "default": "#fabricjs",
+      "required": "true"
+    },
+    "left": {
+      "type": "number",
+      "description": "Left",
+      "default": "100",
+      "required": "true"
+    },
+    "top": {
+      "type": "number",
+      "description": "Top",
+      "default": "100",
+      "required": "true"
+    },
+    "width": {
+      "type": "number",
+      "description": "Width",
+      "default": "100",
+      "required": "true"
+    },
+    "height": {
+      "type": "number",
+      "description": "Height",
+      "default": "100",
+      "required": "true"
+    },
+    "fill": {
+      "type": "string",
+      "description": "Fill Color",
+      "default": "green",
+      "format": "color",
+      "required": "true"
+    },
+    "angle": {
+      "type": "number",
+      "description": "Angle",
+      "default": "20;",
+      "required": "true"
+    },
+    "padding": {
+      "type": "number",
+      "description": "Padding",
+      "default": "10;",
+      "required": "true"
+    },
+    "graphics": {
+      "type": "array",
+      "description": "Graphics",
+      "items": {
+        "type": "object",
+        "description": "Graphic",
+        "properties": {
+            "url": {
+              "type": "url",
+              "description": "SVG url",
+              "required": "true"
+            },
+            "left": {
+              "type": "number",
+              "description": "X Position"
+            },
+            "top": {
+              "type": "number",
+              "description": "Y Position"
+            }
+          }
+      }
+    }
+  }
+}

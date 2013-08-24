@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{context.title}}</title>
+
+    <script type="text/javascript" src="/javascripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/underscore.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+
+    <!-- TODO: loading must be smarter later on -->
+    {{#each javascripts}}
+    {{#if this.host}}
+    <script src="//{{this.host}}{{this.url}}"></script>
+    {{else}}
+    <script src="{{this.url}}"></script>
+    {{/if}}
+    {{/each}}
+    {{#each stylesheets}}
+    {{#if this.host}}
+    <link rel="stylesheet" type="text/css" href="//{{this.host}}{{this.url}}"></link>
+    {{else}}
+    <link rel="stylesheet" type="text/css" href="{{this.url}}"></link>
+    {{/if}}
+    {{/each}}
+
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+</html>

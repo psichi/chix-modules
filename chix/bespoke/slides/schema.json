@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "description": "Bespoke - Slides",
+  "properties": {
+    "slides": {
+      "type": "array",
+      "title": "List items",
+      "items": {
+        "type": "object",
+        "title": "Slide",
+        "properties": {
+          "content": {
+            "type": "string",
+            "title": "Content",
+            "default": "Slide X",
+            "required": "true"
+          }
+        }
+      }
+    }
+  }
+}

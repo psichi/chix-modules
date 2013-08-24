@@ -1,0 +1,36 @@
+{
+  "stylesheets": [ 
+    {
+      "name": "default",
+      "host": "localhost:8080",
+      "url": "/bespoke/slides/css/style.css"
+    },
+    {
+      "name": "default",
+      "host": "fonts.googleapis.com",
+      "url": "/css?family=Raleway+Dots"
+    },
+    {
+      "name": "themes",
+      "host": "localhost:8080",
+      "url": "/bespoke/slides/css/themes.css"
+    }
+  ],
+  "javascripts": [
+    {
+      "name": "headjs",
+      "host": "cdnjs.cloudflare.com",
+      "url": "/ajax/libs/headjs/0.99/head.min.js"
+    },
+    {
+      "name": "bespoke.js",
+      "host": "localhost:8080",
+      "url": "/bespoke/slides/js/bespoke.min.js"
+    },
+    {
+      "name": "Script",
+      "host": "localhost:8080",
+      "url": "/bespoke/slides/js/script.js"
+    }
+  ]
+}

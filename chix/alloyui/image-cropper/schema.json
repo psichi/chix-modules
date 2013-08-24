@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "description": "AlloyUI - Image Cropper",
+  "properties": {
+    "template": {
+      "type": "string",
+      "title": "Template",
+      "default": "<strong class=\"x\">x: {x}</strong><strong class=\"y\">y: {y}</strong><strong class=\"height\">height: {height}</strong><strong class=\"width\">width: {width}</strong>",
+      "required": "true"
+    },
+    "image": {
+      "type": "url",
+      "title": "Image Source",
+      "default": "http://alloyui.com/image-cropper/img/crop-image.jpg",
+      "required": "true"
+    }
+  }
+}
