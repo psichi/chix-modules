@@ -20,6 +20,6 @@ cb = function(res) {
 
 publisher.publishDir({
     origin: 'chix',
-    dest: 'chix',
+    dest: '',
     filter: filter
 }, cb);
