@@ -1,1 +1,0 @@
-awestruct -P production --deploy

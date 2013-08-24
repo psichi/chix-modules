@@ -1,7 +1,0 @@
-profiles:
-  development:
-  staging:
-  production:
-    deploy:
-      type: s3
-      bucket: s3://components.robberthalff.com/
