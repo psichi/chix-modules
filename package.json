@@ -16,7 +16,9 @@
       "web": "http://www.robberthalff.com" 
     } 
   ],
-  "dependencies": { },
+  "dependencies": {
+      "aws-publisher": "latest"
+  },
   "licenses": [
     {
       "type": "MIT",
