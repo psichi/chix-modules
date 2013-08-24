@@ -26,7 +26,6 @@
     },
     {
       "name": "reveal",
-      "host": "localhost:8080",
       "url": "/reveal/presentation/js/presentation.js"
     }
   ]

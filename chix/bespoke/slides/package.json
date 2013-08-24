@@ -2,7 +2,6 @@
   "stylesheets": [ 
     {
       "name": "default",
-      "host": "localhost:8080",
       "url": "/bespoke/slides/css/style.css"
     },
     {
@@ -12,7 +11,6 @@
     },
     {
       "name": "themes",
-      "host": "localhost:8080",
       "url": "/bespoke/slides/css/themes.css"
     }
   ],
@@ -24,12 +22,10 @@
     },
     {
       "name": "bespoke.js",
-      "host": "localhost:8080",
       "url": "/bespoke/slides/js/bespoke.min.js"
     },
     {
       "name": "Script",
-      "host": "localhost:8080",
       "url": "/bespoke/slides/js/script.js"
     }
   ]

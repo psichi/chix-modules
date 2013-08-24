@@ -14,7 +14,6 @@
     },
     {
       "name": "Script",
-      "host": "localhost:8080",
       "url": "/alloyui/diagram-builder/js/script.js"
     }
   ]
