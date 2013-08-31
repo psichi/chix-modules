@@ -1,3 +1,6 @@
 {
-  "name": "Bootstrap - Featurette"
+  "name": "Bootstrap - Featurette",
+  "libs": {
+    "twitter-bootstrap": "latest"
+  }
 }

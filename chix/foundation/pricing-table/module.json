@@ -1,3 +1,6 @@
 {
-  "name": "Foundation - Pricing Table"
+  "name": "Foundation - Pricing Table",
+  "libs": {
+    "foundation": "latest"
+  }
 }

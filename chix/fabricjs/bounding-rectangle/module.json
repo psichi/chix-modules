@@ -1,3 +1,6 @@
 {
-  "name": "FabricJS - Bounding Rectangles"
+  "name": "FabricJS - Bounding Rectangles",
+  "libs": {
+    "fabricjs": "latest"
+  }
 }

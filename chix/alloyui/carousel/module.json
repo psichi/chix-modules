@@ -1,5 +1,8 @@
 {
   "name": "AlloyUI - Carousel",
+  "libs": {
+     "alloy-ui": "latest"
+  },
   "stylesheets": [ 
     {
       "name": "aui",

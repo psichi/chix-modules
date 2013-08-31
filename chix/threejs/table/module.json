@@ -1,5 +1,8 @@
 {
   "name": "ThreeJS - Table",
+  "libs": {
+    "three.js": "latest"
+  },
   "stylesheets": [ 
     {
       "name": "Stylesheet",
