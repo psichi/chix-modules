@@ -1,4 +1,4 @@
-chix-components
+Chiχ-modules
 ===============
 
-Components for chix
+Modules for Chiχ
