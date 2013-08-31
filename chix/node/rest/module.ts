@@ -3,6 +3,12 @@
 
 var mongojs = require("mongojs");
 
+/**
+  *
+  * config: { collection: 'components', db: 'exampledb' }
+  *
+ */
+
 var db = mongojs('appchix'),
 Component = db.collection('components');
 

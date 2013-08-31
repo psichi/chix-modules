@@ -1,0 +1,7 @@
+{
+  "name": "NodeJS - Rest",
+  "type": "node",
+  "dependencies": {
+    "mongojs": "latest"
+  }
+}
