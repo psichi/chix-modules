@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "description": "NodeJS - rest",
+  "properties": {
+    "db": {
+      "type": "string",
+      "title": "Mongo Database",
+      "default": "appchix",
+      "required": "true"
+    },
+    "collection": {
+      "type": "string",
+      "title": "Collection",
+      "default": "components",
+      "required": "true"
+    }
+  }
+}
