@@ -11,7 +11,7 @@ export module Template {
 
   export function handlebars(req: ExpressServerRequest, res: ExpressServerResponse) {
 
-    console.log('Hi from Template.handlebars');
+    res.send('Hi from Template.handlebars');
 
   };
 

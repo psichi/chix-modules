@@ -9,11 +9,11 @@
 
 export module Module {
 
-  export function jsonform(req: ExpressServerRequest, res: ExpressServerResponse) {
-
+  export function jsonform(req: ExpressServerRequest, res: ExpressServerResponse, next) {
 
     console.log('Hi from Module.jsonform');
 
+    next();
 
   };
 
