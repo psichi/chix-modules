@@ -1,4 +1,4 @@
-chiχ-modules
+Chiχ-modules
 ===============
 
-Modules for chiχ
+Modules for Chiχ
