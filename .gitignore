@@ -1,3 +1,4 @@
+*.txt
 keys.s3
 ATTIC
 node_modules
