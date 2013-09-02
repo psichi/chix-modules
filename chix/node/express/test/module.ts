@@ -14,6 +14,8 @@ export module Test {
 
   export function HelloWorld(req, res, next) {
 
+    console.log('Hello World');
+
     res.data = {
       context: {
         title: "Hello World!",

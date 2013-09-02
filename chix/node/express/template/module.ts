@@ -5,6 +5,9 @@
   *
   * data: { template: 'template name', data: { template data.. }
   *
+  * Renders a handlebars template and passes it on to the next.
+  * This could be a layout, express.send(), ...
+  *
  */
 
 export module Template {
@@ -13,23 +16,14 @@ export module Template {
 
   export function handlebars(req, res, next) {
 
-    console.log('template');
+      // TODO: beforehand validate data with json schema.
 
-    // TODO: beforehand validate data with json schema.
+      console.log('handlebars');
 
-      // data template is the template contents.
-      // could come from a file, or a post or whatever.
       var template = Handlebars.compile(res.data.template);
       var html = template(res.data.context);
 
-      // each module acts upon data.
-      // filters must take care that the data 
-      // looks like what this module expects. 
-      // filters sit inbetween the different json schemas.
-      // this module will only render the template
-      // it expects a template and a dataobject.
-
-      res.data = html;
+      res.data.context = html;
       
       next();
 
