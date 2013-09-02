@@ -12,7 +12,7 @@
 
 export module Test {
 
-  export function HelloWorld(req, res) {
+  export function HelloWorld(req, res, next) {
 
     res.data = {
       name: "Rob Halff",
