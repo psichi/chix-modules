@@ -15,9 +15,11 @@ export module Test {
   export function HelloWorld(req, res, next) {
 
     res.data = {
-      name: "Rob Halff",
-      description: "A res.data test",
-      content: "Hello World!"
+      context: {
+        title: "Hello World!",
+        content: "Welcome to Chix!",
+      },
+      template: "<html><body><h1>{{title}}</h1><hr /><p>{{content}}</p></body></html>"
     };
 
     next();
