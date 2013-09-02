@@ -9,9 +9,12 @@
 
 export module Module {
 
-  export function jsonform(req: ExpressServerRequest, res: ExpressServerResponse, next) {
+  export function jsonform(req, res, next) {
 
-    console.log('Hi from Module.jsonform');
+    res.set('Content-Type', 'text/plain');
+    res.set('x-hi-from-jsonform', 'HIIIIII');
+
+    console.log('jsonform');
 
     next();
 

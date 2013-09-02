@@ -9,7 +9,9 @@
 
 export module Template {
 
-  export function handlebars(req: ExpressServerRequest, res: ExpressServerResponse) {
+  export function handlebars(req, res) {
+
+    console.log('template');
 
     res.send('Hi from Template.handlebars');
 

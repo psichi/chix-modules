@@ -14,11 +14,11 @@ Component = db.collection('components');
 
 export module rest {
 
-  export function get(req: ExpressServerRequest, res: ExpressServerResponse) {
+  export function get(req, res) {
 
   };
 
-  export function post(req: ExpressServerRequest, res: ExpressServerResponse) {
+  export function post(req, res) {
 /*
       var v = request.body; 
 
@@ -55,11 +55,11 @@ export module rest {
 
   };
 
-  export function put(req: ExpressServerRequest, res: ExpressServerResponse) {
+  export function put(req, res) {
     res.send('put');
   };
 
-  export function list(req: ExpressServerRequest, res: ExpressServerResponse) {
+  export function list(req, res) {
 
       // list components
       var list = Component.find(function (err, doc) {
