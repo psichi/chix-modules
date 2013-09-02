@@ -11,7 +11,7 @@ export module Template {
 
   var Handlebars = require('handlebars');
 
-  export function handlebars(req, res) {
+  export function handlebars(req, res, next) {
 
     console.log('template');
 
@@ -29,8 +29,9 @@ export module Template {
       // this module will only render the template
       // it expects a template and a dataobject.
 
-      res.send(html);
-
+      res.data = html;
+      
+      next();
 
   };
 
