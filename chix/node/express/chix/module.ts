@@ -20,9 +20,9 @@ export module Module {
 
   };
 
-  export function schema(req, res, next) {
+  export function request(req, res, next) {
 
-    console.log('schema');
+    console.log('request');
 
     var request = require('superagent');
 
@@ -36,7 +36,8 @@ export module Module {
         console.log(res.data);
 
         if(ret.ok) {
-          res.data.context = JSON.parse(ret.text ? ret.text : ret.body);
+          //res.data.context = JSON.parse(ret.text ? ret.text : ret.body);
+          res.data.context = ret.text ? ret.text : ret.body;
         } else {
           res.data.context = { status: 'error' };
         }
@@ -46,7 +47,7 @@ export module Module {
     });
 
     } else {
-       res.data.context = { status: 'error', message: "schema needs a config.url" };
+       res.data.context = { status: 'error', message: "request needs a config.url" };
        next();
     }
 
