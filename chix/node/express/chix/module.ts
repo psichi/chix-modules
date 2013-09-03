@@ -20,13 +20,35 @@ export module Module {
 
   };
 
+  export function schema(req, res, next) {
+
+    console.log('schema');
+
+    var request = require('superagent');
+    var url = 'http://components.robberthalff.com/reveal/presentation/schema.json';
+
+    request.get(url).end(function(ret) {
+
+        console.log(res.data);
+
+        if(ret.ok) {
+          res.data.context = JSON.parse(ret.text ? ret.text : ret.body);
+        } else {
+          res.data.context = { status: 'error' };
+        }
+
+        next();
+
+    });
+
+  };
+
   /**
    *
    * Preview the client side templates,
    * based on path.
    *
    */
-
   export function previewer(req, res, next) {
 
     var path = req.param('path');
