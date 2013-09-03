@@ -26,9 +26,12 @@ export module Module {
 
     var request = require('superagent');
 
-    if(this.config.url) {
+    // example of giving res.data precedence 
+    var url = res.data.url || this.config.url;
 
-    request.get(this.config.url).end(function(ret) {
+    if(url) {
+
+    request.get(url).end(function(ret) {
 
         console.log(res.data);
 
