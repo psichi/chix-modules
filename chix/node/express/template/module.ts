@@ -19,9 +19,11 @@ export module Template {
       // TODO: beforehand validate data with json schema.
 
       console.log('handlebars');
+      console.log(res.data);
+      console.log(this);
 
-      var template = Handlebars.compile(res.data.template);
-      var html = template(res.data.context);
+      var template = Handlebars.compile(res.data.template || 'no template');
+      var html = template(res.data.context || {});
 
       res.data.context = html;
       

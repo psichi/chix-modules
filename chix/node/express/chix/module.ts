@@ -33,13 +33,14 @@ export module Module {
 
     request.get(url).end(function(ret) {
 
-        console.log(res.data);
-
         if(ret.ok) {
+
           //res.data.context = JSON.parse(ret.text ? ret.text : ret.body);
-          res.data.context = ret.text ? ret.text : ret.body;
+          // in case of json, we set .context
+          res.data.context = Object.keys(ret.body).length ? ret.body : ret.text;
+
         } else {
-          res.data.context = { status: 'error' };
+          res.data.context = { status: 'error', message: ret.text };
         }
 
         next();
@@ -52,6 +53,21 @@ export module Module {
     }
 
   };
+
+  /**
+   *
+   * TODO: shouldn't be done this way, this is filter work.
+   *       ah what's in a name;
+   */
+
+  export function templatify(req, res, next) {
+
+    res.data.template = res.data.context;
+    //res.data.context = {}; yep ugly.
+
+    next();
+
+  }
 
   /**
    *
