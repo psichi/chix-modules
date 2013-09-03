@@ -25,9 +25,10 @@ export module Module {
     console.log('schema');
 
     var request = require('superagent');
-    var url = 'http://components.robberthalff.com/reveal/presentation/schema.json';
 
-    request.get(url).end(function(ret) {
+    if(this.config.url) {
+
+    request.get(this.config.url).end(function(ret) {
 
         console.log(res.data);
 
@@ -40,6 +41,11 @@ export module Module {
         next();
 
     });
+
+    } else {
+       res.data.context = { status: 'error', message: "schema needs a config.url" };
+       next();
+    }
 
   };
 
