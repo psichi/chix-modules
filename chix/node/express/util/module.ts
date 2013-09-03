@@ -33,7 +33,7 @@ export module Util {
 
   export function dotify(req, res, next) {
 
-    console.log('dotify');
+    console.log('dotify', this);
 
     var ret = _dotify(res.data.context, undefined);
 
@@ -64,13 +64,14 @@ export module Util {
 
   export function dotfilter(req, res, next) {
 
+    console.log('dotfilter', this);
+
     var filtered = {};
 
     res.data.match = this.config.match || '';
+    var reg = new RegExp(res.data.match);
 
     for(var key in res.data.context) {
-
-      var reg = new RegExp(res.data.match);
 
       if(reg.test(key)) {
          filtered[key] = res.data.context[key]; 
@@ -84,7 +85,49 @@ export module Util {
 
   };
 
+  /**
+   *
+   * data.strip = ['properties', 'default']
+   * data.context:
+   *
+   * {
+   *   "properties.person.default": "Rob",
+   * }
+   *
+   * result:
+   *
+   * {
+   *   "person": "Rob",
+   * }
+   *
+   */
+  export function dotstripper(req, res, next) {
+
+    console.log('dotstripper', this);
+
+    if(this.config.strip) {
+
+      var exp = '(' + this.config.strip.join('.|.') + '|.' + this.config.strip.join('|.') + ')';
+
+      var reg = new RegExp(exp, 'g');
+
+      for(var key in res.data.context) {
+
+        var new_key = key.replace(reg, ''); 
+        res.data.context[new_key] = res.data.context[key];
+        delete res.data.context[key];
+
+      }
+
+    }
+
+    next();
+
+  };
+
   export function dottojson(req, res, next) {
+
+    console.log('dottojson', this);
 
     var jsf = new JSF();
 
